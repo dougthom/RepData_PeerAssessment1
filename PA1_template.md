@@ -3,24 +3,46 @@
 
 ## Loading and preprocessing the data
 
-```{r}
+
+```r
 data <- read.csv("activity.csv", colClasses=c("numeric", "Date", "numeric"))
 splitData <- split(data$steps, data$date)
 sums <- sapply(splitData, sum, rm.na=TRUE)
-
 ```
 ## What is mean total number of steps taken per day?
 The mean and median is calculated next
-```{r}
+
+```r
 mean(sums, na.rm=TRUE)
+```
+
+```
+## [1] 10767
+```
+
+```r
 median(sums, na.rm=TRUE)
 ```
 
+```
+## [1] 10766
+```
+
 The following is a histogram of the total steps each day.
-```{r}
+
+```r
 require(ggplot2)
+```
+
+```
+## Loading required package: ggplot2
+```
+
+```r
 qplot(sums, binwidth=500, xlab="steps")
 ```
+
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
 
 
 ## What is the average daily activity pattern?
