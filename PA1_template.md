@@ -47,8 +47,22 @@ qplot(sums, binwidth=500, xlab="steps")
 
 ## What is the average daily activity pattern?
 
+```r
+plot.ts(data$interval, data$steps, xlab="Interval", ylab="Steps", xy.lines=TRUE)
+```
+
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png) 
 
 ## Imputing missing values
+The number of rows with missing values.
+
+```r
+sum(is.na(data$steps))
+```
+
+```
+## [1] 2304
+```
 
 
 
